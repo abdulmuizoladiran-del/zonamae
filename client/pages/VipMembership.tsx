@@ -61,10 +61,11 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
 }
 
 const VIP_CARD_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F04dbbb8300b149b6b41cd6ca09b9bc7a?format=webp&width=800&height=1200";
+const VIP_CARD_BACK_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2Fd999f36742844efdb10b949266a536a7?format=webp&width=800&height=1200";
 
 function VipCard({ back = false }: { back?: boolean }) {
   return <div className="relative overflow-hidden rounded-xl border border-gold/40 bg-[#0b0b0b] shadow-2xl">
-    <img src={VIP_CARD_IMAGE} alt="Zona Mae VIP membership card" className="aspect-[1.62/1] w-full object-cover" />
+    <img src={back ? VIP_CARD_BACK_IMAGE : VIP_CARD_IMAGE} alt={back ? "Zona Mae VIP membership card back" : "Zona Mae VIP membership card front"} className="aspect-[1.62/1] w-full object-cover" />
     {back && <span className="absolute right-3 top-3 rounded-full bg-black/70 px-2 py-1 text-[9px] uppercase tracking-wider text-gold">Card preview</span>}
   </div>;
 }
