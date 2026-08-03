@@ -119,45 +119,12 @@ export default function Index() {
   );
 }
 
+const VIP_CARD_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F04dbbb8300b149b6b41cd6ca09b9bc7a?format=webp&width=800&height=1200";
+
 function VipCard() {
   return (
-    <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-br from-[#161616] to-[#0a0a0a] p-6 shadow-2xl">
-      <Crown className="pointer-events-none absolute -right-6 -top-6 h-32 w-32 text-gold/10" />
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-md border border-gold/50 font-display text-sm font-bold text-gold">
-            ZM
-          </span>
-          <div className="leading-tight">
-            <p className="font-display text-sm font-bold text-white">
-              ZONA MAE
-            </p>
-            <p className="text-[9px] tracking-widest text-gold">VIP MEMBER</p>
-          </div>
-        </div>
-        <QrCode className="h-10 w-10 text-gold/80" />
-      </div>
-
-      <div className="mt-8 h-7 w-10 rounded-md bg-gradient-to-br from-gold-light to-gold" />
-
-      <div className="mt-6 flex items-end justify-between">
-        <div>
-          <p className="text-[9px] uppercase tracking-widest text-muted-foreground">
-            Member ID
-          </p>
-          <p className="font-mono text-sm tracking-wider text-white">
-            ZM-2405-7856
-          </p>
-        </div>
-        <div>
-          <p className="text-[9px] uppercase tracking-widest text-muted-foreground">
-            Status
-          </p>
-          <p className="text-sm font-semibold text-gold">ACTIVE</p>
-        </div>
-      </div>
-
-      <p className="mt-6 font-signature text-2xl text-gold-light">Zona Mae</p>
+    <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gold/30 shadow-2xl">
+      <img src={VIP_CARD_IMAGE} alt="Zona Mae VIP membership card" className="aspect-[1.62/1] w-full object-cover" />
     </div>
   );
 }
