@@ -60,10 +60,12 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
   return <div className="mb-8"><p className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">{eyebrow}</p><h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">{title}</h2>{copy && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">{copy}</p>}</div>;
 }
 
+const VIP_CARD_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F04dbbb8300b149b6b41cd6ca09b9bc7a?format=webp&width=800&height=1200";
+
 function VipCard({ back = false }: { back?: boolean }) {
-  return <div className={cn("relative aspect-[1.62/1] overflow-hidden rounded-xl border border-gold/40 bg-gradient-to-br from-[#201d17] via-[#11110f] to-[#070707] p-5 shadow-2xl", back && "flex items-center justify-center p-7")}>
-    <Crown className="absolute -right-8 -top-8 h-40 w-40 text-gold/10" />
-    {back ? <div className="relative z-10 text-center"><div className="mb-4 h-9 bg-black/80" /><p className="font-display text-lg text-gold">Zona Mae</p><p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-muted-foreground">This card is the property of Zona Mae Official Fan Access</p></div> : <><div className="relative z-10 flex items-start justify-between"><div className="flex items-center gap-2"><span className="font-display text-2xl font-bold text-gold">ZM</span><div><p className="font-display text-sm text-white">ZONA MAE</p><p className="text-[8px] tracking-widest text-gold">VIP MEMBER</p></div></div><div className="grid h-9 w-9 grid-cols-2 gap-0.5 p-0.5 text-[8px] text-gold"><span className="border border-gold" /><span className="border border-gold" /><span className="border border-gold" /><span className="border border-gold" /></div></div><div className="mt-7 h-7 w-10 rounded bg-gradient-to-br from-gold-light to-gold" /><div className="mt-5 flex justify-between"><div><p className="text-[8px] uppercase tracking-widest text-muted-foreground">Member ID</p><p className="font-mono text-xs text-white">ZM-2405-7856</p></div><div><p className="text-[8px] uppercase tracking-widest text-muted-foreground">Status</p><p className="text-xs text-gold">ACTIVE</p></div></div><p className="mt-3 font-signature text-xl text-gold-light">Zona Mae</p></>}
+  return <div className="relative overflow-hidden rounded-xl border border-gold/40 bg-[#0b0b0b] shadow-2xl">
+    <img src={VIP_CARD_IMAGE} alt="Zona Mae VIP membership card" className="aspect-[1.62/1] w-full object-cover" />
+    {back && <span className="absolute right-3 top-3 rounded-full bg-black/70 px-2 py-1 text-[9px] uppercase tracking-wider text-gold">Card preview</span>}
   </div>;
 }
 
