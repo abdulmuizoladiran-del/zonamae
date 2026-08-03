@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -118,8 +118,66 @@ function Faq() {
   return <section className="container py-10 sm:py-14"><div className="mx-auto max-w-3xl"><SectionHeading eyebrow="Frequently Asked Questions" title="Everything you need to know" />{questions.map((question, i) => <div key={question} className="border-b border-border"><button onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-center justify-between py-4 text-left text-sm text-white"><span>{question}</span><ChevronDown className={cn("h-4 w-4 text-gold transition-transform", open === i && "rotate-180")} /></button><div className={cn("grid transition-[grid-template-rows] duration-300", open === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}><p className="overflow-hidden text-xs leading-relaxed text-muted-foreground">{i === 0 ? "Choose your plan, complete the secure application below, and our team will confirm your membership by email." : i === 1 ? "Your official card is produced and shipped after approval. You can track every step from your member dashboard." : "Our support team can help with plan changes at any time."}</p></div></div>)}</div></section>;
 }
 
+function handleRegistrationSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const fullName = String(data.get("fullName") || "").trim();
+  const email = String(data.get("email") || "").trim();
+  const phone = String(data.get("phone") || "").trim();
+  const country = String(data.get("country") || "").trim();
+  const plan = String(data.get("plan") || "").trim();
+  const dateOfBirth = String(data.get("dateOfBirth") || "").trim();
+  const instagram = String(data.get("instagram") || "").trim();
+
+  if (!fullName || !email || !phone || !country || !plan || !dateOfBirth) {
+    window.alert("Please complete all required fields before continuing.");
+    return;
+  }
+
+  const message = [
+    "━━━━━━━━━━━━━━━━━━━━",
+    "✨ ZONA MAE VIP MEMBERSHIP",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "👤 Full Name:",
+    fullName,
+    "",
+    "📧 Email:",
+    email,
+    "",
+    "📱 Phone:",
+    phone,
+    "",
+    "🌍 Country:",
+    country,
+    "",
+    "💎 Selected Plan:",
+    plan,
+    "",
+    "🎂 Date of Birth:",
+    dateOfBirth,
+    "",
+    "📷 Instagram:",
+    instagram,
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "Hello Management Team,",
+    "",
+    "I have completed my VIP Membership application and would like to proceed with payment.",
+    "",
+    "Kindly send me the available payment methods and the next steps for my selected VIP Membership plan.",
+    "",
+    "Thank you.",
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+  ].join("\n");
+
+  window.location.href = "https://t.me/Lisalynn662?text=" + encodeURIComponent(message);
+}
+
 function Registration() {
-  return <section id="registration" className="container py-12 sm:py-16"><div className="grid gap-8 lg:grid-cols-[1fr_1.25fr]"><div><SectionHeading eyebrow="Join VIP Membership" title="Your exclusive access starts here" copy="Complete your details and continue to secure payment. A confirmation will be sent to your email." /><div className="rounded-xl border border-gold/30 bg-gold/5 p-5"><p className="flex items-center gap-2 text-sm font-semibold text-gold"><Lock className="h-4 w-4" /> Secure application</p><p className="mt-2 text-xs leading-relaxed text-muted-foreground">Your information is encrypted and protected. You can cancel anytime.</p></div></div><form onSubmit={(e) => e.preventDefault()} className="grid gap-4 rounded-2xl border border-border bg-card/50 p-5 sm:grid-cols-2 sm:p-7"><label className="text-xs text-muted-foreground">Full Name<input required className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="Your full name" /></label><label className="text-xs text-muted-foreground">Email Address<input required type="email" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="you@example.com" /></label><label className="text-xs text-muted-foreground">Phone Number<input className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="+1 000 000 0000" /></label><label className="text-xs text-muted-foreground">Country<select className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold"><option>United States</option><option>United Kingdom</option><option>France</option><option>United Arab Emirates</option></select></label><label className="text-xs text-muted-foreground">Preferred Plan<select className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold"><option>Gold VIP — $49.99 / month</option><option>Silver VIP — $19.99 / month</option><option>Platinum VIP — $99.99 / month</option></select></label><label className="text-xs text-muted-foreground">Date of Birth<input type="date" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" /></label><label className="text-xs text-muted-foreground sm:col-span-2">Instagram / Social Media (Optional)<input className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="@yourhandle" /></label><label className="flex items-start gap-2 text-[11px] text-muted-foreground sm:col-span-2"><input required type="checkbox" className="mt-0.5 accent-yellow-500" />I agree to the Terms & Conditions and Privacy Policy.</label><button type="submit" className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold py-3.5 text-xs font-bold uppercase tracking-wider text-black transition-transform hover:scale-[1.02] sm:col-span-2">Continue to Payment <ArrowRight className="h-4 w-4" /></button></form></div></section>;
+  return <section id="registration" className="container py-12 sm:py-16"><div className="grid gap-8 lg:grid-cols-[1fr_1.25fr]"><div><SectionHeading eyebrow="Join VIP Membership" title="Your exclusive access starts here" copy="Complete your details and continue to secure payment. A confirmation will be sent to your email." /><div className="rounded-xl border border-gold/30 bg-gold/5 p-5"><p className="flex items-center gap-2 text-sm font-semibold text-gold"><Lock className="h-4 w-4" /> Secure application</p><p className="mt-2 text-xs leading-relaxed text-muted-foreground">Your information is encrypted and protected. You can cancel anytime.</p></div></div><form onSubmit={handleRegistrationSubmit} className="grid gap-4 rounded-2xl border border-border bg-card/50 p-5 sm:grid-cols-2 sm:p-7"><label className="text-xs text-muted-foreground">Full Name<input required name="fullName" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="Your full name" /></label><label className="text-xs text-muted-foreground">Email Address<input required name="email" type="email" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="you@example.com" /></label><label className="text-xs text-muted-foreground">Phone Number<input required name="phone" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="+1 000 000 0000" /></label><label className="text-xs text-muted-foreground">Country<select required name="country" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold"><option>United States</option><option>United Kingdom</option><option>France</option><option>United Arab Emirates</option></select></label><label className="text-xs text-muted-foreground">Preferred Plan<select required name="plan" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold"><option>Gold VIP — $49.99 / month</option><option>Silver VIP — $19.99 / month</option><option>Platinum VIP — $99.99 / month</option></select></label><label className="text-xs text-muted-foreground">Date of Birth<input required name="dateOfBirth" type="date" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" /></label><label className="text-xs text-muted-foreground sm:col-span-2">Instagram / Social Media (Optional)<input name="instagram" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-white outline-none focus:border-gold" placeholder="@yourhandle" /></label><label className="flex items-start gap-2 text-[11px] text-muted-foreground sm:col-span-2"><input required type="checkbox" className="mt-0.5 accent-yellow-500" />I agree to the Terms & Conditions and Privacy Policy.</label><button type="submit" className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold py-3.5 text-xs font-bold uppercase tracking-wider text-black transition-transform hover:scale-[1.02] sm:col-span-2">Continue to Payment <ArrowRight className="h-4 w-4" /></button></form></div></section>;
 }
 
 function Trust() {
