@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Placeholder from "./pages/Placeholder";
 import VipMembership from "./pages/VipMembership";
 import MeetGreet from "./pages/MeetGreet";
+import TrackCard from "./pages/TrackCard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,10 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/vip-membership" element={<VipMembership />} />
           <Route path="/meet-greet" element={<MeetGreet />} />
-          <Route
-            path="/track-card"
-            element={<Placeholder title="Track VIP Card" />}
-          />
+          <Route path="/track-card" element={<TrackCard />} />
           <Route path="/news" element={<Placeholder title="Latest News" />} />
           <Route path="/contact" element={<Placeholder title="Contact" />} />
           <Route path="/login" element={<Placeholder title="Member Login" />} />
