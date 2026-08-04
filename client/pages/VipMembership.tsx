@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { cn } from "@/lib/utils";
+import { openTelegramMessage } from "@/lib/telegram";
 
 const goldImage = "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop";
 const events = [
@@ -176,7 +177,7 @@ function handleRegistrationSubmit(event: FormEvent<HTMLFormElement>) {
     "━━━━━━━━━━━━━━━━━━━━",
   ].join("\n");
 
-  window.location.href = "https://t.me/Lisalynn662?text=" + encodeURIComponent(message);
+  openTelegramMessage(message);
 }
 
 function Registration() {

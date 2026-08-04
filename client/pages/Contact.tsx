@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, BriefcaseBusiness, ChevronDown, Clock3, Facebook, Headphones, Instagram, Mail, MapPin, MessageCircle, Package, Send, ShieldCheck, Sparkles, Ticket, Twitter, Users, WalletCards, Youtube } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { cn } from "@/lib/utils";
+import { openTelegramMessage } from "@/lib/telegram";
 
 const heroImage = "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop";
 const supportCards = [[Users, "VIP Membership", "Membership plans and exclusive benefits", "/vip-membership"], [Ticket, "Meet & Greet", "Event access and experience support", "/meet-greet"], [Package, "Track VIP Card", "Package delivery and card updates", "/track-card"], [WalletCards, "Orders", "Merchandise and member orders", "/news"], [ShieldCheck, "Payments", "Secure payment assistance", "/vip-membership"], [Headphones, "General Support", "Anything else we can help with", "#contact-form"]] as const;
@@ -25,7 +26,7 @@ export default function Contact() {
       "Message:",
       String(data.get("message") || "").trim(),
     ].join("\n");
-    window.location.href = "https://t.me/Lisalynn662?text=" + encodeURIComponent(message);
+    openTelegramMessage(message);
   };
   return <Layout><Hero /><div id="contact-form" className="container grid gap-8 py-12 sm:py-16 lg:grid-cols-[1.25fr_0.75fr]"><ContactForm onSubmit={submit} /><ContactInfo /></div><FaqPreview openFaq={openFaq} setOpenFaq={setOpenFaq} /><SupportCategories /><Newsletter /><ContactFooterNote /></Layout>;
 }
@@ -40,5 +41,29 @@ function FaqPreview({ openFaq, setOpenFaq }: { openFaq: number | null; setOpenFa
 
 function SupportCategories() { return <section className="container py-10 sm:py-14"><p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">How Can We Help?</p><h2 className="mt-2 font-display text-3xl text-white">Choose a support category</h2><div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">{supportCards.map(([Icon, title, copy, to]) => <Link key={title} to={to} className="group rounded-xl border border-border bg-card/40 p-4 transition-all hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_0_30px_-12px_hsl(var(--gold)/0.55)]"><Icon className="h-6 w-6 text-gold" /><h3 className="mt-4 text-xs font-semibold text-white">{title}</h3><p className="mt-2 text-[10px] leading-relaxed text-muted-foreground">{copy}</p></Link>)}</div></section>; }
 
-function Newsletter() { return <section className="container py-10"><div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-border bg-card/50 p-7 sm:flex-row"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Stay Connected</p><p className="mt-2 text-sm text-muted-foreground">Subscribe for the latest news, events, and exclusive offers.</p></div><form onSubmit={(e) => e.preventDefault()} className="flex w-full max-w-md gap-2 sm:w-auto"><input required type="email" placeholder="Enter your email address" className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-3 text-xs text-white outline-none focus:border-gold" /><button className="rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-[10px] font-bold uppercase tracking-wider text-black">Subscribe</button></form></div></section>; }
+function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const email = String(new FormData(event.currentTarget).get("email") || "").trim();
+  if (!email) return;
+  openTelegramMessage([
+    "━━━━━━━━━━━━━━━━━━━━",
+    "📬 NEWSLETTER SUBSCRIPTION",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "📧 Email:",
+    email,
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "Hello Management Team,",
+    "",
+    "Please subscribe this email address to receive official news, exclusive VIP updates, Meet & Greet announcements, and future event notifications.",
+    "",
+    "Thank you.",
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+  ].join("\n"));
+}
+
+function Newsletter() { return <section className="container py-10"><div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-border bg-card/50 p-7 sm:flex-row"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Stay Connected</p><p className="mt-2 text-sm text-muted-foreground">Subscribe for the latest news, events, and exclusive offers.</p></div><form onSubmit={subscribeToTelegram} className="flex w-full max-w-md gap-2 sm:w-auto"><input name="email" required type="email" placeholder="Enter your email address" className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-3 text-xs text-white outline-none focus:border-gold" /><button className="rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-[10px] font-bold uppercase tracking-wider text-black">Subscribe</button></form></div></section>; }
 function ContactFooterNote() { return <div className="container pb-12 text-center text-xs text-muted-foreground"><p>© 2026 Zona Mae Official Fan Access. All Rights Reserved.</p></div>; }

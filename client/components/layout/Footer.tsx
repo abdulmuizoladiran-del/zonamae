@@ -1,5 +1,31 @@
+import { FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { openTelegramMessage } from "@/lib/telegram";
+
+function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const email = String(new FormData(event.currentTarget).get("email") || "").trim();
+  if (!email) return;
+  openTelegramMessage([
+    "━━━━━━━━━━━━━━━━━━━━",
+    "📬 NEWSLETTER SUBSCRIPTION",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "📧 Email:",
+    email,
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "Hello Management Team,",
+    "",
+    "Please subscribe this email address to receive official news, exclusive VIP updates, Meet & Greet announcements, and future event notifications.",
+    "",
+    "Thank you.",
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+  ].join("\n"));
+}
 
 const SOCIALS = [
   { icon: Instagram, href: "https://instagram.com" },
@@ -22,10 +48,11 @@ export default function Footer() {
             </p>
           </div>
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={subscribeToTelegram}
             className="flex w-full max-w-md gap-2 sm:w-auto"
           >
             <input
+              name="email"
               type="email"
               required
               placeholder="Enter your email address"

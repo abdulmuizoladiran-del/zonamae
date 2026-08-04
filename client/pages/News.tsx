@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CalendarDays, ChevronDown, Facebook, Instagram, Play, Sparkles, Star, Ticket, Twitter, Users, Youtube } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { cn } from "@/lib/utils";
+import { openTelegramMessage } from "@/lib/telegram";
 
 const stories = [
   { category: "Video", date: "May 20, 2024", title: "New Video Coming Soon", summary: "Zona is back in the studio and working on something special for you all.", image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=900&auto=format&fit=crop" },
@@ -22,6 +23,30 @@ const announcements = [
   ["Exclusive VIP Merchandise Launch", "VIP", Sparkles],
 ];
 
+function subscribeToTelegram(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const email = String(new FormData(event.currentTarget).get("email") || "").trim();
+  if (!email) return;
+  openTelegramMessage([
+    "━━━━━━━━━━━━━━━━━━━━",
+    "📬 NEWSLETTER SUBSCRIPTION",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "📧 Email:",
+    email,
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "Hello Management Team,",
+    "",
+    "Please subscribe this email address to receive official news, exclusive VIP updates, Meet & Greet announcements, and future event notifications.",
+    "",
+    "Thank you.",
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
+  ].join("\n"));
+}
+
 export default function News() {
   const [category, setCategory] = useState("All");
   const filtered = useMemo(() => category === "All" ? stories : stories.filter((story) => story.category === category), [category]);
@@ -38,5 +63,5 @@ function Announcements() { return <section className="container py-12 sm:py-16">
 
 function Social() { const socials = [[Instagram, "Instagram", "Daily moments & stories"], [Play, "TikTok", "Join the conversation"], [Youtube, "YouTube", "Watch the latest videos"], [Facebook, "Facebook", "Connect with ZM Nation"], [Twitter, "X / Twitter", "Official announcements"]]; return <section className="container py-10 sm:py-14"><div className="rounded-2xl border border-border bg-card/30 p-6 sm:p-8"><div className="text-center"><p className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">Follow Along</p><h2 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">Stay in the Zona Mae world</h2></div><div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{socials.map(([Icon, title, copy]) => <a key={title as string} href="https://instagram.com" target="_blank" rel="noreferrer" className="group rounded-xl border border-border p-4 transition-all hover:-translate-y-1 hover:border-gold/50"><Icon className="h-5 w-5 text-gold transition-transform group-hover:scale-110" /><h3 className="mt-4 text-xs font-semibold text-white">{title as string}</h3><p className="mt-1 text-[10px] text-muted-foreground">{copy as string}</p></a>)}</div></div></section>; }
 
-function Newsletter() { return <section className="container py-10"><div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-border bg-card/50 p-7 sm:flex-row"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Stay Connected</p><p className="mt-2 text-sm text-muted-foreground">Get the latest updates, news, and exclusive content straight to your inbox.</p></div><form onSubmit={(e) => e.preventDefault()} className="flex w-full max-w-md gap-2 sm:w-auto"><input type="email" required placeholder="Enter your email" className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-3 text-xs text-white outline-none focus:border-gold" /><button className="rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-[10px] font-bold uppercase tracking-wider text-black">Subscribe</button></form></div></section>; }
+function Newsletter() { return <section className="container py-10"><div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-border bg-card/50 p-7 sm:flex-row"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Stay Connected</p><p className="mt-2 text-sm text-muted-foreground">Get the latest updates, news, and exclusive content straight to your inbox.</p></div><form onSubmit={subscribeToTelegram} className="flex w-full max-w-md gap-2 sm:w-auto"><input name="email" type="email" required placeholder="Enter your email" className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-3 text-xs text-white outline-none focus:border-gold" /><button className="rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-[10px] font-bold uppercase tracking-wider text-black">Subscribe</button></form></div></section>; }
 function FooterNote() { return <div className="container pb-12 text-center text-xs text-muted-foreground"><p>© 2026 Zona Mae Official Fan Access. All Rights Reserved.</p></div>; }
