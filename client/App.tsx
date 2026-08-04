@@ -11,6 +11,7 @@ import Placeholder from "./pages/Placeholder";
 import VipMembership from "./pages/VipMembership";
 import MeetGreet from "./pages/MeetGreet";
 import TrackCard from "./pages/TrackCard";
+import News from "./pages/News";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,7 +27,7 @@ const App = () => (
           <Route path="/vip-membership" element={<VipMembership />} />
           <Route path="/meet-greet" element={<MeetGreet />} />
           <Route path="/track-card" element={<TrackCard />} />
-          <Route path="/news" element={<Placeholder title="Latest News" />} />
+          <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Placeholder title="Contact" />} />
           <Route path="/login" element={<Placeholder title="Member Login" />} />
           <Route path="/privacy" element={<Placeholder title="Privacy Policy" />} />
