@@ -15,6 +15,7 @@ import {
   ChevronRight,
   Check,
   Package,
+  Mail,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { cn } from "@/lib/utils";
@@ -114,6 +115,7 @@ export default function Index() {
       <QuickLinks />
       <Stats />
       <FeatureShowcase />
+      <ContactCta />
       <EventsAndTestimonials />
     </Layout>
   );
@@ -376,6 +378,41 @@ function FeatureShowcase() {
           >
             Track Now
             <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactCta() {
+  return (
+    <section id="contact" className="container pb-16 sm:pb-24">
+      <div className="relative overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-r from-gold/10 via-card/70 to-gold/5 p-7 sm:p-10">
+        <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-gold/10 blur-3xl" />
+        <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+          <div className="flex items-start gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-gold/50 bg-gold/10 text-gold">
+              <Mail className="h-5 w-5" />
+            </span>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+                Connect With Us
+              </p>
+              <h2 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
+                Have a question for the Zona Mae team?
+              </h2>
+              <p className="mt-2 max-w-xl text-sm text-muted-foreground">
+                Reach out to official management for support, partnerships, and VIP community questions.
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/contact"
+            className="flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-black transition-transform hover:scale-105"
+          >
+            Contact Management
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
