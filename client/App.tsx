@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Placeholder from "./pages/Placeholder";
 import VipMembership from "./pages/VipMembership";
+import MeetGreet from "./pages/MeetGreet";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,10 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/vip-membership" element={<VipMembership />} />
-          <Route
-            path="/meet-greet"
-            element={<Placeholder title="Meet & Greet" />}
-          />
+          <Route path="/meet-greet" element={<MeetGreet />} />
           <Route
             path="/track-card"
             element={<Placeholder title="Track VIP Card" />}
