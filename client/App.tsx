@@ -13,6 +13,8 @@ import MeetGreet from "./pages/MeetGreet";
 import TrackCard from "./pages/TrackCard";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import MemberDashboard from "./pages/MemberDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,7 +32,8 @@ const App = () => (
           <Route path="/track-card" element={<TrackCard />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Placeholder title="Member Login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/member/dashboard" element={<MemberDashboard />} />
           <Route path="/privacy" element={<Placeholder title="Privacy Policy" />} />
           <Route
             path="/terms"
