@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Crown, LogIn, Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Crown, LogIn, LogOut, Menu, X } from "lucide-react";
+import { clearVipSession, getLoggedInMember } from "@/lib/vip-auth";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -14,8 +15,10 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(() => Boolean(getLoggedInMember()));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -26,7 +29,14 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
+    setLoggedIn(Boolean(getLoggedInMember()));
   }, [location.pathname]);
+
+  const handleLogout = () => {
+    clearVipSession();
+    setLoggedIn(false);
+    navigate("/login");
+  };
 
   return (
     <header
@@ -74,13 +84,23 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/login"
-            className="hidden items-center gap-2 rounded-full border border-gold/60 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-gold transition-all hover:bg-gold/10 sm:flex"
-          >
-            <LogIn className="h-3.5 w-3.5" />
-            Login
-          </Link>
+          {loggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="hidden items-center gap-2 rounded-full border border-gold/60 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-gold transition-all hover:bg-gold/10 sm:flex"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="hidden items-center gap-2 rounded-full border border-gold/60 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-gold transition-all hover:bg-gold/10 sm:flex"
+            >
+              <LogIn className="h-3.5 w-3.5" />
+              Login
+            </Link>
+          )}
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
@@ -113,13 +133,23 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link
-            to="/login"
-            className="mt-2 flex items-center justify-center gap-2 rounded-full border border-gold/60 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gold"
-          >
-            <LogIn className="h-3.5 w-3.5" />
-            Member Login
-          </Link>
+          {loggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="mt-2 flex items-center justify-center gap-2 rounded-full border border-gold/60 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gold"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="mt-2 flex items-center justify-center gap-2 rounded-full border border-gold/60 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gold"
+            >
+              <LogIn className="h-3.5 w-3.5" />
+              Member Login
+            </Link>
+          )}
           <Link
             to="/vip-membership"
             className="mt-2 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-xs font-bold uppercase tracking-wider text-black"
