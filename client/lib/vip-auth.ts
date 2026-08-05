@@ -1,6 +1,5 @@
 export type VipMember = {
   memberId: string;
-  password: string;
   name: string;
   plan: string;
   status: "Active" | "Inactive";
@@ -9,14 +8,12 @@ export type VipMember = {
 export const vipMembers: VipMember[] = [
   {
     memberId: "ZM-2026-000001",
-    password: "ZonaMae2026!",
     name: "John Smith",
     plan: "Gold VIP",
     status: "Active",
   },
   {
     memberId: "ZM-2026-000002",
-    password: "ZonaMaeVIP!",
     name: "Sarah Brown",
     plan: "Diamond VIP",
     status: "Active",
