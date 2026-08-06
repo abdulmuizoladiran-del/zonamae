@@ -53,7 +53,7 @@ export default function Login() {
               <label className="block text-xs text-muted-foreground">Member ID
                 <div className="mt-2 flex items-center gap-2 rounded-lg border border-border bg-background px-3 focus-within:border-gold">
                   <UserRound className="h-4 w-4 text-gold" />
-                  <input required value={memberId} onChange={(event) => setMemberId(event.target.value)} className="w-full bg-transparent py-3 text-sm text-white outline-none placeholder:text-muted-foreground" placeholder="ZM-2026-000001" />
+                  <input required value={memberId} onChange={(event) => setMemberId(event.target.value)} className="w-full bg-transparent py-3 text-sm text-white outline-none placeholder:text-muted-foreground" />
                 </div>
               </label>
               <label className="flex items-center gap-2 text-xs text-muted-foreground"><input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} className="accent-yellow-500" />Remember Me</label>
