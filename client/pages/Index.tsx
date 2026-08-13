@@ -221,7 +221,6 @@ function QuickLinks() {
             to={f.to}
             className="flex flex-col items-center gap-2 rounded-xl border border-transparent px-3 py-4 text-center transition-colors hover:border-gold/30 hover:bg-gold/5"
           >
-            <f.icon className="h-6 w-6 text-gold" />
             <span className="text-xs font-semibold text-white">
               {f.title}
             </span>
