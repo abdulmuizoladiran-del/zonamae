@@ -23,14 +23,62 @@ export const FEATURED_VIDEO: VipVideo = {
 };
 
 export const VIDEO_LIBRARY: VipVideo[] = [
-  { title: "Private Moments", description: "An exclusive behind-the-scenes look.", date: "May 20, 2024", duration: "06:21", category: "Behind the Scenes", image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=700&auto=format&fit=crop" },
-  { title: "Unseen Footage", description: "Moments you've never seen before.", date: "May 18, 2024", duration: "04:32", category: "Exclusive", image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=700&auto=format&fit=crop" },
-  { title: "Zona's Private Diary", description: "A day in my life. Just for VIPs.", date: "May 15, 2024", duration: "08:15", category: "Behind the Scenes", image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=700&auto=format&fit=crop" },
-  { title: "VIP Q&A Session", description: "Raw, real and unfiltered.", date: "May 12, 2024", duration: "05:48", category: "Community", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=700&auto=format&fit=crop" },
-  { title: "Late Night Talks", description: "Deep conversations, exclusively.", date: "May 05, 2024", duration: "07:33", category: "Exclusive", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=700&auto=format&fit=crop" },
-  { title: "Special Tease", description: "A little something special.", date: "April 30, 2024", duration: "05:02", category: "Preview", image: "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=700&auto=format&fit=crop" },
-  { title: "Just For You", description: "Because you're VIP.", date: "April 20, 2024", duration: "06:18", category: "Exclusive", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=700&auto=format&fit=crop" },
-  { title: "The Gold Room", description: "A private look behind the scenes.", date: "April 15, 2024", duration: "04:10", category: "Behind the Scenes", image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=700&auto=format&fit=crop" },
+  {
+    title: "Feeling a little mischievous 😏",
+    description: "Just here to cause harmless trouble.",
+    date: "May 20, 2024",
+    duration: "06:21",
+    category: "Behind the Scenes",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F0caaf413a19f46108acd026e8100ceb1?format=webp&width=800&height=1200",
+  },
+  {
+    title: "Caught being chaotic again 😂",
+    description: "Apparently, behaving was never the plan.",
+    date: "May 18, 2024",
+    duration: "04:32",
+    category: "Exclusive",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F2a05b7fd9020442d942080085bed0214?format=webp&width=800&height=1200",
+  },
+  {
+    title: "Too much attitude in one video 😎",
+    description: "Proceed with caution.",
+    date: "May 15, 2024",
+    duration: "08:15",
+    category: "Behind the Scenes",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2Fb9069db7015d47c89e2ff139f459bf46?format=webp&width=800&height=1200",
+  },
+  {
+    title: "Guess who’s feeling bold today 👀",
+    description: "A little confidence goes a long way.",
+    date: "May 12, 2024",
+    duration: "05:48",
+    category: "Community",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F8870417cd1bf47fe9528a1a6e2582e23?format=webp&width=800&height=1200",
+  },
+  {
+    title: "Plot twist: I’m the troublemaker.",
+    description: "No further explanation needed.",
+    date: "May 05, 2024",
+    duration: "07:33",
+    category: "Exclusive",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2Ffe1db01cd55441aba581a746d10159c1?format=webp&width=800&height=1200",
+  },
+  {
+    title: "Serving maximum mischief ✨",
+    description: "Keeping things fun and unpredictable.",
+    date: "April 30, 2024",
+    duration: "05:02",
+    category: "Preview",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F7016b9c0af5b4116bba77836ed190eb0?format=webp&width=800&height=1200",
+  },
+  {
+    title: "Oops… did I steal the spotlight?",
+    description: "Looks like it happened again.",
+    date: "April 20, 2024",
+    duration: "06:18",
+    category: "Exclusive",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2Fdd6e0844072e4364ad2206d35b8c0ebc?format=webp&width=800&height=1200",
+  },
 ];
 
 const categories = ["All", ...Array.from(new Set(VIDEO_LIBRARY.map((video) => video.category)))];
