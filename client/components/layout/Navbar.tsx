@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "VIP Membership", to: "/vip-membership" },
   { label: "Meet & Greet", to: "/meet-greet" },
   { label: "Track Card", to: "/track-card" },
+  { label: "VIP Videos", to: "/vip-videos" },
   { label: "News", to: "/news" },
   { label: "Contact", to: "/contact" },
 ];
