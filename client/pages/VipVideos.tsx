@@ -16,7 +16,7 @@ export type VipVideo = {
 export const FEATURED_VIDEO: VipVideo = {
   title: "The Zona Mae Experience",
   description: "Available to approved VIP members.",
-  image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1400&auto=format&fit=crop",
+  image: "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2Fc145982a3ebb4123b13ba1fa4d747756?format=webp&width=800&height=1200",
   duration: "09:24",
   category: "Featured",
   date: "May 25, 2024",
