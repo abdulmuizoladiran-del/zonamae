@@ -70,10 +70,10 @@ export default function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-border pt-8 sm:flex-row">
           <div className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-gold/60 font-display text-sm font-bold text-gold">
-              ZM
+              B
             </span>
             <p className="text-xs text-muted-foreground">
-              © 2026 Zona Mae Official Fan Access. All Rights Reserved.
+              © 2026 Bailey Official Fan Access. All Rights Reserved.
             </p>
           </div>
 

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   Crown,
   Ticket,
-  Truck,
   Newspaper,
   Users,
   Star,
@@ -14,11 +13,9 @@ import {
   ChevronLeft,
   ChevronRight,
   Check,
-  Package,
   Mail,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { cn } from "@/lib/utils";
 
 const STATS = [
   { icon: Users, value: "250K+", label: "Official Members" },
@@ -39,12 +36,6 @@ const FEATURES = [
     title: "Meet & Greet",
     description: "Exclusive access to Meet & Greet events.",
     to: "/meet-greet",
-  },
-  {
-    icon: Truck,
-    title: "Track VIP Card",
-    description: "Track your VIP card from production to delivery.",
-    to: "/track-card",
   },
   {
     icon: Newspaper,
@@ -84,7 +75,7 @@ const EVENTS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Being a VIP member has given me experiences I never thought possible. Thank you Zona Mae and the entire team!",
+      "Being a VIP member has given me experiences I never thought possible. Thank you Bailey and the entire team!",
     name: "Sarah M.",
     role: "VIP Member",
     avatar:
@@ -126,7 +117,7 @@ const VIP_CARD_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d
 function VipCard() {
   return (
     <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gold/30 shadow-2xl">
-      <img src={VIP_CARD_IMAGE} alt="Zona Mae VIP membership card" className="aspect-[1.62/1] w-full object-cover" />
+      <img src={VIP_CARD_IMAGE} alt="Bailey VIP membership card" className="aspect-[1.62/1] w-full object-cover" />
     </div>
   );
 }
@@ -143,7 +134,7 @@ function Hero() {
             Welcome to the Official Portal
           </p>
           <h1 className="mt-4 font-display text-6xl font-black leading-none text-gradient-gold sm:text-7xl lg:text-8xl">
-            ZONA MAE
+            BAILEY
           </h1>
           <p className="mt-2 text-lg font-semibold tracking-[0.25em] text-white sm:text-xl">
             OFFICIAL FAN ACCESS
@@ -197,7 +188,7 @@ function Hero() {
           <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-gold/20 shadow-2xl">
             <img
               src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
-              alt="Zona Mae"
+              alt="Bailey"
               className="aspect-[3/4] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/10" />
@@ -214,7 +205,7 @@ function Hero() {
 function QuickLinks() {
   return (
     <section className="border-y border-border bg-card/30">
-      <div className="container grid grid-cols-2 gap-3 py-8 sm:grid-cols-4">
+      <div className="container grid grid-cols-1 gap-3 py-8 sm:grid-cols-3">
         {FEATURES.map((f) => (
           <Link
             key={f.title}
@@ -252,7 +243,7 @@ function Stats() {
 function FeatureShowcase() {
   return (
     <section className="container pb-16 sm:pb-24">
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 lg:grid-cols-2">
         <div className="group rounded-2xl border border-border bg-card/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_0_40px_-10px_hsl(var(--gold)/0.35)]">
           <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
             <Crown className="h-5 w-5" />
@@ -331,54 +322,6 @@ function FeatureShowcase() {
           </Link>
         </div>
 
-        <div className="group rounded-2xl border border-border bg-card/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_0_40px_-10px_hsl(var(--gold)/0.35)]">
-          <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
-            <Package className="h-5 w-5" />
-          </span>
-          <h3 className="mt-4 font-display text-lg font-bold text-white">
-            Track Your Card
-          </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Real-time updates on your VIP card status.
-          </p>
-          <div className="mt-5 space-y-3">
-            {[
-              { label: "Application Received", done: true },
-              { label: "Membership Approved", done: true },
-              { label: "Card In Production", done: true },
-              { label: "Shipped", done: false },
-              { label: "Delivered", done: false },
-            ].map((step) => (
-              <div key={step.label} className="flex items-center gap-3">
-                <span
-                  className={cn(
-                    "flex h-5 w-5 items-center justify-center rounded-full border text-[10px]",
-                    step.done
-                      ? "border-gold bg-gold text-black"
-                      : "border-border text-muted-foreground",
-                  )}
-                >
-                  {step.done && <Check className="h-3 w-3" />}
-                </span>
-                <span
-                  className={cn(
-                    "text-xs",
-                    step.done ? "text-white" : "text-muted-foreground",
-                  )}
-                >
-                  {step.label}
-                </span>
-              </div>
-            ))}
-          </div>
-          <Link
-            to="/track-card"
-            className="mt-6 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold py-3 text-xs font-bold uppercase tracking-wider text-black transition-transform group-hover:scale-105"
-          >
-            Track Now
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
       </div>
     </section>
   );
@@ -399,7 +342,7 @@ function ContactCta() {
                 Connect With Us
               </p>
               <h2 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
-                Have a question for the Zona Mae team?
+                Have a question for the Bailey team?
               </h2>
               <p className="mt-2 max-w-xl text-sm text-muted-foreground">
                 Reach out to official management for support, partnerships, and VIP community questions.

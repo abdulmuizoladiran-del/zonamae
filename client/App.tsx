@@ -10,7 +10,6 @@ import Index from "./pages/Index";
 import Placeholder from "./pages/Placeholder";
 import VipMembership from "./pages/VipMembership";
 import MeetGreet from "./pages/MeetGreet";
-import TrackCard from "./pages/TrackCard";
 import VipVideos from "./pages/VipVideos";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
@@ -30,7 +29,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/vip-membership" element={<VipMembership />} />
           <Route path="/meet-greet" element={<MeetGreet />} />
-          <Route path="/track-card" element={<TrackCard />} />
           <Route path="/vip-videos" element={<VipVideos />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />

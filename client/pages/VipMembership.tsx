@@ -140,7 +140,7 @@ function handleRegistrationSubmit(event: FormEvent<HTMLFormElement>) {
 
   const message = [
     "━━━━━━━━━━━━━━━━━━━━",
-    "✨ ZONA MAE VIP MEMBERSHIP",
+    "✨ BAILEY VIP MEMBERSHIP",
     "━━━━━━━━━━━━━━━━━━━━",
     "",
     "👤 Full Name:",

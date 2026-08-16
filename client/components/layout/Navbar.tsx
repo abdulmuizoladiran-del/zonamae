@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "VIP Membership", to: "/vip-membership" },
   { label: "Meet & Greet", to: "/meet-greet" },
-  { label: "Track Card", to: "/track-card" },
   { label: "VIP Videos", to: "/vip-videos" },
   { label: "News", to: "/news" },
   { label: "Contact", to: "/contact" },
@@ -51,11 +50,11 @@ export default function Navbar() {
       <div className="container flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-gold/60 bg-gradient-to-br from-gold-light/20 to-gold/10 font-display text-lg font-bold text-gold">
-            ZM
+            B
           </span>
           <span className="flex flex-col leading-tight">
             <span className="font-display text-lg font-bold tracking-wide text-white">
-              ZONA MAE
+              BAILEY
             </span>
             <span className="text-[10px] font-semibold tracking-[0.2em] text-muted-foreground">
               OFFICIAL FAN ACCESS
