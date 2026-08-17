@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { label: "VIP Membership", to: "/vip-membership" },
   { label: "Meet & Greet", to: "/meet-greet" },
   { label: "VIP Videos", to: "/vip-videos" },
-  { label: "News", to: "/news" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -62,7 +61,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => {
             const active = location.pathname === link.to;
             return (

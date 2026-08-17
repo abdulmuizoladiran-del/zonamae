@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { openTelegramMessage } from "@/lib/telegram";
 
 const heroImage = "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop";
-const supportCards = [[Users, "VIP Membership", "Membership plans and exclusive benefits", "/vip-membership"], [Ticket, "Meet & Greet", "Event access and experience support", "/meet-greet"], [WalletCards, "Orders", "Merchandise and member orders", "/news"], [ShieldCheck, "Payments", "Secure payment assistance", "/vip-membership"], [Headphones, "General Support", "Anything else we can help with", "#contact-form"]] as const;
+const supportCards = [[Users, "VIP Membership", "Membership plans and exclusive benefits", "/vip-membership"], [Ticket, "Meet & Greet", "Event access and experience support", "/meet-greet"], [ShieldCheck, "Payments", "Secure payment assistance", "/vip-membership"], [Headphones, "General Support", "Anything else we can help with", "#contact-form"]] as const;
 const faqs = ["How do I become a VIP Member?", "How do I book a Meet & Greet?", "How long does support take to respond?"];
 
 export default function Contact() {
@@ -39,7 +39,7 @@ function ContactInfo() { const info = [[Mail, "Email Us", "support@zonamaeoffici
 
 function FaqPreview({ openFaq, setOpenFaq }: { openFaq: number | null; setOpenFaq: (index: number | null) => void }) { return <section className="container py-12 sm:py-16"><div className="rounded-2xl border border-border bg-card/40 p-5 sm:p-8"><div className="flex items-end justify-between"><div><p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">Need To Know</p><h2 className="mt-2 font-display text-3xl text-white">Frequently Asked Questions</h2></div><Sparkles className="mb-2 h-6 w-6 text-gold" /></div><div className="mt-6 grid gap-x-8 sm:grid-cols-2">{faqs.map((question, i) => <div key={question} className="border-b border-border"><button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="flex w-full items-center justify-between py-4 text-left text-xs text-white"><span>{question}</span><ChevronDown className={cn("h-4 w-4 text-gold transition-transform", openFaq === i && "rotate-180")} /></button><div className={cn("grid transition-[grid-template-rows] duration-300", openFaq === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}><p className="overflow-hidden pb-3 text-[10px] leading-relaxed text-muted-foreground">Our official team can guide you through this. Send us a message and we’ll share the latest details for your account.</p></div></div>)}</div></div></section>; }
 
-function SupportCategories() { return <section className="container py-10 sm:py-14"><p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">How Can We Help?</p><h2 className="mt-2 font-display text-3xl text-white">Choose a support category</h2><div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">{supportCards.map(([Icon, title, copy, to]) => <Link key={title} to={to} className="group rounded-xl border border-border bg-card/40 p-4 transition-all hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_0_30px_-12px_hsl(var(--gold)/0.55)]"><Icon className="h-6 w-6 text-gold" /><h3 className="mt-4 text-xs font-semibold text-white">{title}</h3><p className="mt-2 text-[10px] leading-relaxed text-muted-foreground">{copy}</p></Link>)}</div></section>; }
+function SupportCategories() { return <section className="container py-10 sm:py-14"><p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">How Can We Help?</p><h2 className="mt-2 font-display text-3xl text-white">Choose a support category</h2><div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">{supportCards.map(([Icon, title, copy, to]) => <Link key={title} to={to} className="group rounded-xl border border-border bg-card/40 p-4 transition-all hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_0_30px_-12px_hsl(var(--gold)/0.55)]"><Icon className="h-6 w-6 text-gold" /><h3 className="mt-4 text-xs font-semibold text-white">{title}</h3><p className="mt-2 text-[10px] leading-relaxed text-muted-foreground">{copy}</p></Link>)}</div></section>; }
 
 function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
   event.preventDefault();
@@ -47,7 +47,7 @@ function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
   if (!email) return;
   openTelegramMessage([
     "━━━━━━━━━━━━━━━━━━━━",
-    "📬 NEWSLETTER SUBSCRIPTION",
+    "📬 MEMBER UPDATES SUBSCRIPTION",
     "━━━━━━━━━━━━━━━━━━━━",
     "",
     "📧 Email:",
@@ -57,7 +57,7 @@ function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
     "",
     "Hello Management Team,",
     "",
-    "Please subscribe this email address to receive official news, exclusive VIP updates, Meet & Greet announcements, and future event notifications.",
+    "Please subscribe this email address to receive exclusive VIP updates, Meet & Greet announcements, and future event notifications.",
     "",
     "Thank you.",
     "",
@@ -65,5 +65,5 @@ function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
   ].join("\n"));
 }
 
-function Newsletter() { return <section className="container py-10"><div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-border bg-card/50 p-7 sm:flex-row"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Stay Connected</p><p className="mt-2 text-sm text-muted-foreground">Subscribe for the latest news, events, and exclusive offers.</p></div><form onSubmit={subscribeToTelegram} className="flex w-full max-w-md gap-2 sm:w-auto"><input name="email" required type="email" placeholder="Enter your email address" className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-3 text-xs text-white outline-none focus:border-gold" /><button className="rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-[10px] font-bold uppercase tracking-wider text-black">Subscribe</button></form></div></section>; }
+function Newsletter() { return <section className="container py-10"><div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-border bg-card/50 p-7 sm:flex-row"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Stay Connected</p><p className="mt-2 text-sm text-muted-foreground">Subscribe for upcoming events and exclusive offers.</p></div><form onSubmit={subscribeToTelegram} className="flex w-full max-w-md gap-2 sm:w-auto"><input name="email" required type="email" placeholder="Enter your email address" className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-3 text-xs text-white outline-none focus:border-gold" /><button className="rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-[10px] font-bold uppercase tracking-wider text-black">Subscribe</button></form></div></section>; }
 function ContactFooterNote() { return <div className="container pb-12 text-center text-xs text-muted-foreground"><p>© 2026 Bailey Official Fan Access. All Rights Reserved.</p></div>; }

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   Crown,
   Ticket,
-  Newspaper,
   Users,
   Star,
   Globe,
@@ -36,12 +35,6 @@ const FEATURES = [
     title: "Meet & Greet",
     description: "Exclusive access to Meet & Greet events.",
     to: "/meet-greet",
-  },
-  {
-    icon: Newspaper,
-    title: "Latest News",
-    description: "Stay updated with official announcements.",
-    to: "/news",
   },
 ];
 
@@ -205,7 +198,7 @@ function Hero() {
 function QuickLinks() {
   return (
     <section className="border-y border-border bg-card/30">
-      <div className="container grid grid-cols-1 gap-3 py-8 sm:grid-cols-3">
+      <div className="container grid max-w-3xl grid-cols-1 gap-3 py-8 sm:grid-cols-2 sm:gap-4">
         {FEATURES.map((f) => (
           <Link
             key={f.title}
@@ -425,13 +418,6 @@ function EventsAndTestimonials() {
             <h2 className="font-display text-xl font-bold uppercase tracking-wide text-white">
               What Fans Say
             </h2>
-            <Link
-              to="/news"
-              className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-gold hover:text-gold-light"
-            >
-              View All
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
           </div>
           <p className="mt-1 text-sm text-muted-foreground">
             Real experiences from our VIP members.

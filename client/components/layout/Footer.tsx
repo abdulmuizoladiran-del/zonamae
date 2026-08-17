@@ -9,7 +9,7 @@ function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
   if (!email) return;
   openTelegramMessage([
     "━━━━━━━━━━━━━━━━━━━━",
-    "📬 NEWSLETTER SUBSCRIPTION",
+    "📬 MEMBER UPDATES SUBSCRIPTION",
     "━━━━━━━━━━━━━━━━━━━━",
     "",
     "📧 Email:",
@@ -19,7 +19,7 @@ function subscribeToTelegram(event: FormEvent<HTMLFormElement>) {
     "",
     "Hello Management Team,",
     "",
-    "Please subscribe this email address to receive official news, exclusive VIP updates, Meet & Greet announcements, and future event notifications.",
+    "Please subscribe this email address to receive exclusive VIP updates, Meet & Greet announcements, and future event notifications.",
     "",
     "Thank you.",
     "",
