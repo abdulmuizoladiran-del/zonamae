@@ -24,7 +24,7 @@ import {
 import Layout from "@/components/layout/Layout";
 import { cn } from "@/lib/utils";
 
-const heroImage = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F3cf1ee6a5c104470871b22f882725a5a?format=webp&width=800&height=1200";
+const heroImage = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F2b91c3462ccb4bdd879d8b3b6ac9beee?format=webp&width=800&height=1200";
 const cities = [
   ["Los Angeles", "USA", "https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?q=80&w=800&auto=format&fit=crop"],
   ["New York", "USA", "https://images.unsplash.com/photo-1496588152823-86ff7695e68f?q=80&w=800&auto=format&fit=crop"],
