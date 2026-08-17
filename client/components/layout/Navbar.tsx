@@ -154,7 +154,7 @@ export default function Navbar() {
             className="mt-2 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold px-5 py-3 text-xs font-bold uppercase tracking-wider text-black"
           >
             <Crown className="h-3.5 w-3.5" />
-            Join VIP Membership
+            Explore VIP Access
           </Link>
         </nav>
       </div>

@@ -84,7 +84,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Fast shipping on my VIP card and the app made tracking it so easy. Highly recommend the membership.",
+      "Fast access approval and the app made tracking everything so easy. Highly recommend the membership.",
     name: "Amara K.",
     role: "VIP Member",
     avatar:
@@ -105,12 +105,12 @@ export default function Index() {
   );
 }
 
-const VIP_CARD_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F04dbbb8300b149b6b41cd6ca09b9bc7a?format=webp&width=800&height=1200";
+const VIP_ACCESS_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F387c17f062d04bd5837dfeec0d29ae1e%2F3cf1ee6a5c104470871b22f882725a5a?format=webp&width=800&height=1200";
 
-function VipCard() {
+function VipAccessDesign() {
   return (
     <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gold/30 shadow-2xl">
-      <img src={VIP_CARD_IMAGE} alt="Bailey VIP membership card" className="aspect-[1.62/1] w-full object-cover" />
+      <img src={VIP_ACCESS_IMAGE} alt="Bailey VIP access design" className="aspect-[1.5/1] w-full object-cover" />
     </div>
   );
 }
@@ -143,7 +143,7 @@ function Hero() {
               className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold px-8 py-4 text-xs font-bold uppercase tracking-wider text-black transition-transform hover:scale-105 sm:w-auto"
             >
               <Crown className="h-4 w-4" />
-              Join VIP Membership
+              Explore VIP Access
             </Link>
             <Link
               to="/login"
@@ -187,7 +187,7 @@ function Hero() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/10" />
           </div>
           <div className="absolute -bottom-10 left-1/2 w-[85%] -translate-x-1/2 animate-float lg:-bottom-12 lg:left-auto lg:right-[-2rem] lg:w-80 lg:translate-x-0">
-            <VipCard />
+            <VipAccessDesign />
           </div>
         </div>
       </div>
@@ -249,7 +249,7 @@ function FeatureShowcase() {
           </p>
           <ul className="mt-5 space-y-2">
             {[
-              "Official VIP Membership Card",
+              "Official Bailey VIP Access",
               "Priority Event Access",
               "Exclusive Merchandise",
               "Members Only Events",
