@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "VIP Membership", to: "/vip-membership" },
   { label: "Meet & Greet", to: "/meet-greet" },
   { label: "VIP Videos", to: "/vip-videos" },
+  { label: "Private Chat", to: "/private-chat" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -61,7 +62,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {NAV_LINKS.map((link) => {
             const active = location.pathname === link.to;
             return (
@@ -113,7 +114,7 @@ export default function Navbar() {
       <div
         className={cn(
           "overflow-hidden border-t border-border/60 bg-background/95 backdrop-blur-md transition-[max-height,opacity] duration-300 ease-in-out lg:hidden",
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+          open ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0",
         )}
       >
         <nav className="container flex flex-col gap-1 py-4">

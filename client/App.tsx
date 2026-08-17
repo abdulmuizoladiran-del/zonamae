@@ -11,6 +11,7 @@ import Placeholder from "./pages/Placeholder";
 import VipMembership from "./pages/VipMembership";
 import MeetGreet from "./pages/MeetGreet";
 import VipVideos from "./pages/VipVideos";
+import PrivateChat from "./pages/PrivateChat";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import MemberDashboard from "./pages/MemberDashboard";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/vip-membership" element={<VipMembership />} />
           <Route path="/meet-greet" element={<MeetGreet />} />
           <Route path="/vip-videos" element={<VipVideos />} />
+          <Route path="/private-chat" element={<PrivateChat />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/member/dashboard" element={<MemberDashboard />} />
